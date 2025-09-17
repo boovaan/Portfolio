@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bhuvan Jadhav - Software Engineer Portfolio</title>
+  <style>
+    body {
+      font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #0f172a 60%, #1e293b 100%);
+      color: #e2e8f0;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+    header {
+      text-align: center;
+      padding: 60px 20px 30px 20px;
+      background: linear-gradient(135deg, #0ea5e9, #2563eb);
+      color: white;
+      box-shadow: 0 4px 24px rgba(30,41,59,0.18);
+      animation: fadeIn 2s ease-in-out;
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      position: relative;
+    }
+    header img {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid white;
+      box-shadow: 0px 4px 20px rgba(0,0,0,0.6);
+      animation: float 3s infinite ease-in-out;
+      margin-bottom: 18px;
+    }
+    header h1 {
+      margin-top: 10px;
+      font-size: 2.5em;
+      font-weight: 700;
+      letter-spacing: 1px;
+      animation: slideIn 1.5s ease-out;
+      text-shadow: 0 2px 8px #0f172a44;
+    }
+    header p {
+      font-size: 1.2em;
+      color: #f0f9ff;
+      margin-bottom: 0;
+    }
+    .accordion-section {
+      padding: 30px 0 0 0;
+      max-width: 950px;
+      margin: auto;
+    }
+    h2 {
+      margin: 0;
+      padding: 18px;
+      font-size: 1.4em;
+      background: #1e293b;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+      color: #38bdf8;
+      box-shadow: 0 2px 12px #0f172a22;
+      margin-bottom: 8px;
+      user-select: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    h2:hover {
+      background: #334155;
+      transform: scale(1.02);
+    }
+    .content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.8s cubic-bezier(.86,0,.07,1), padding 0.6s;
+      padding: 0 15px;
+      background: #1e293b;
+      border-radius: 0 0 10px 10px;
+      box-shadow: 0 2px 12px #0f172a22;
+      margin-bottom: 18px;
+    }
+    .content.open {
+      max-height: 1200px;
+      padding: 18px 15px;
+      margin-bottom: 18px;
+    }
+    .card {
+      background: #24324a;
+      color: #f1f5f9;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.18);
+      transition: transform 0.3s, box-shadow 0.3s;
+      animation: fadeUp 1.2s ease forwards;
+      font-size: 1.08em;
+      text-decoration: none;
+      display: block;
+    }
+    .card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 8px 30px rgba(56,189,248,0.18);
+      background: #334155;
+      color: #38bdf8;
+    }
+    .contact-btn {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(90deg, #38bdf8 60%, #0ea5e9 100%);
+      color: #0f172a;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px #38bdf822;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      font-size: 1.08em;
+    }
+    .contact-link:hover {
+      background: linear-gradient(90deg, #0ea5e9 60%, #38bdf8 100%);
+      color: #f1f5f9;
+      box-shadow: 0 4px 16px #38bdf844;
+    }
+    .contact-icon {
+      font-size: 1.3em;
+    }
+    footer {
+      text-align: center;
+      padding: 24px 0 16px 0;
+      background: #1e293b;
+      font-size: 1em;
+      color: #94a3b8;
+      letter-spacing: 1px;
+      box-shadow: 0 -2px 12px #0f172a22;
+      margin-top: 40px;
+      border-top-left-radius: 30px;
+      border-top-right-radius: 30px;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+    @keyframes slideIn {
+      from {transform: translateY(-30px); opacity: 0;}
+      to {transform: translateY(0); opacity: 1;}
+    }
+    @keyframes fadeUp {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    @media (max-width: 700px) {
+      header {
+        padding: 30px 8px 18px 8px;
+      }
+      header img {
+        width: 110px;
+        height: 110px;
+      }
+      h2 {
+        font-size: 1.1em;
+        padding: 12px;
+      }
+      .content.open {
+        padding: 12px 6px;
+      }
+      .card {
+        padding: 10px 4px;
+        font-size: 1em;
+      }
+      .contact-link {
+        padding: 10px 12px;
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <img src="profile.jpeg" alt="Bhuvan Jadhav">
+    <h1>Bhuvan Jadhav</h1>
+    <p>Aspiring Software Engineer • Problem Solver • Tech Explorer</p>
+  </header>
+
+  <div class="accordion-section">
+    <!-- About -->
+    <section>
+      <h2 onclick="toggleContent('about')">👨‍💻 About Me</h2>
+      <div id="about" class="content">
+        <p>
+          Hi, I’m <b>Bhuvan</b>, an aspiring <b>Software Engineer</b> with a passion for solving real-world 
+          problems through technology. I enjoy coding, exploring new frameworks, and continuously 
+          learning about modern software development practices.  
+        </p>
+        <p>
+          I completed my schooling at <b>Army Public School</b>, which built my discipline and teamwork.  
+          My career goal is to build scalable, efficient applications and contribute to impactful 
+          technology projects.
+        </p>
+      </div>
+    </section>
+
+    <!-- Hobbies -->
+    <section>
+      <h2 onclick="toggleContent('hobbies')">🎯 My Hobbies</h2>
+      <div id="hobbies" class="content">
+        <div class="card">💻 Competitive Coding & Problem Solving</div>
+        <div class="card">⚙️ Building Projects & Experiments</div>
+        <div class="card">📚 Learning New Tech & Frameworks</div>
+        <div class="card">🌍 Traveling & Exploring Cultures</div>
+        <div class="card">⚽ Playing Football & Basketball</div>
+      </div>
+    </section>
+
+    <!-- Certificates -->
+    <section>
+      <h2 onclick="toggleContent('certificates')">📜 Certificates</h2>
+      <div id="certificates" class="content">
+        <a class="card" href="https://drive.google.com/file/d/1bZxYnoidFBdS4YeeNZnImsiLic8Mhwxl/view?usp=sharing" target="_blank">
+          ✔️ Cyber Security
+        </a>
+        <a class="card" href="https://drive.google.com/file/d/1zLAC_GzNySNYzyhmVzofxdeRwNBrEVRv/view?usp=sharing" target="_blank">
+          ✔️ Full Stack Developer
+        </a>
+        <a class="card" href="https://drive.google.com/file/d/18VopSgvd-otlcBPuaAhEvDHo0CnaFM0Y/view?usp=sharing" target="_blank">
+          ✔️ System Administration II
+        </a>
+        <a class="card" href="https://drive.google.com/file/d/18_iL0WDj9jelFqEm36VD1rUh-1Fgngkc/view?usp=sharing" target="_blank">
+          ✔️ Django Web Framework
+        </a>
+      </div>
+    </section>
+
+    <!-- Contact Me -->
+    <section>
+      <h2 onclick="toggleContent('contact')">📬 Contact Me</h2>
+      <div id="contact" class="content">
+        <div class="contact-btn">
+          <a class="contact-link" href="https://github.com/boovaan" target="_blank">
+            <span class="contact-icon">🐙</span> GitHub
+          </a>
+          <a class="contact-link" href="tel:+917745827748">
+            <span class="contact-icon">📞</span> +91 7745827748
+          </a>
+        </div>
+        <div style="margin-top:18px;">
+          <span style="color:#38bdf8;">Or email:</span> <a href="mailto:bhuvanjadhav123@gmail.com" style="color:#38bdf8;">bhuvanjadhav123@gmail.com</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>©️ 2025 Bhuvan Jadhav | Software Engineer Portfolio</p>
+  </footer>
+
+  <!-- JS for Accordion -->
+  <script>
+    function toggleContent(id) {
+      const content = document.getElementById(id);
+      content.classList.toggle("open");
+    }
+  </script>
+
+</body>
+</html>
